@@ -1,3 +1,4 @@
+using System.Diagnostics;
 public static class Arrays
 {
     /// <summary>
@@ -12,8 +13,15 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        double[] arrayMultiples = new double [length]; // 1 - created an array with with the length of the multiples of given number
+        
+        for (int i = 0; i < length; ++i) { //itaration to get the index of the elements in the array
+            arrayMultiples[i] = number * (i + 1); //adding the multiplication of number * 1 to length, to the right index from 0 to length
+        }
 
-        return []; // replace this return statement with your own
+        //Debug.WriteLine("result here Eliud:", string.Join(", ", arrayMultiples));
+
+        return arrayMultiples; //returning the array with the multiples of number
     }
 
     /// <summary>
@@ -29,5 +37,24 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        List<int> rotate = new List<int>();
+        int count = data.Count;
+        int rotationRange = count - amount;
+
+        for (int i = rotationRange; i < count; ++i) // first adding the last numbers accordint to amount to the new list
+        {
+            rotate.Add(data[i]);
+        }
+        
+        for (int i = 0; i < rotationRange; ++i) // Then adding the remaining number
+        {
+            rotate.Add(data[i]);
+        }
+
+        data.Clear(); //empting the list befor adding the rotation result
+            
+        data.AddRange(rotate); // overrideing the data list with the new results of the rotation
+
+        //Console.WriteLine(string.Join(", ", data));
     }
 }
