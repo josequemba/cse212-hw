@@ -13,7 +13,7 @@ public class PersonQueue
     /// <param name="person">The person to add</param>
     public void Enqueue(Person person)
     {
-        _queue.Insert(0, person);
+        _queue.Add(person); // used add instead because insert adds to the start and defeats the purpose of FIFO 
     }
 
     public Person Dequeue()
@@ -25,7 +25,7 @@ public class PersonQueue
 
     public bool IsEmpty()
     {
-        return Length == 0;
+        return _queue.Count == 0; // this will return true if the queue is empty
     }
 
     public override string ToString()
