@@ -23,6 +23,15 @@
             }
         }
 
+        ///======Solution======/// O(n) algorithm
+        HashSet<char> seenCharacters = new HashSet<char>();
+        foreach (char c in text)
+        {
+            if (!seenCharacters.Add(c)) // If the character is already in the set, return false
+                return false;
+        }
+        ///======Solution======///
+
         return true;
     }
 }

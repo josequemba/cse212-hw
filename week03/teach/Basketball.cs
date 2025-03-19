@@ -31,6 +31,14 @@ public class Basketball
 
         Console.WriteLine($"Players: {{{string.Join(", ", players)}}}");
 
-        var topPlayers = new string[10];
+        // convert dictionary to array and sort by points (descending)
+        var topPlayers = players.ToArray();
+        Array.Sort(topPlayers, (p1, p2) => p2.Value.CompareTo(p1.Value));
+
+        // Display top 10 players
+        for (var i = 0; i < Math.Min(10, topPlayers.Length); ++i)
+        {
+            Console.WriteLine($"{i + 1}. {topPlayers[i].Key}: {topPlayers[i].Value} points");
+        }
     }
 }
