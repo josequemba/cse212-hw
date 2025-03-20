@@ -1,3 +1,6 @@
+using System.Diagnostics;
+
+
 /// <summary>
 /// Defines a maze using a dictionary. The dictionary is provided by the
 /// user when the Maze object is created. The dictionary will contain the
@@ -33,6 +36,20 @@ public class Maze
     public void MoveLeft()
     {
         // FILL IN CODE
+        //get the wall
+        var leftWall = _mazeMap[(_currX, _currY)][0];
+
+        // check if allowed to move and move 
+        if (leftWall)
+        {
+            // Update the position and move left
+            _currX--;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        //Debug.WriteLine($"Current location (x={_currX}, y={_currY})");
     }
 
     /// <summary>
@@ -42,6 +59,20 @@ public class Maze
     public void MoveRight()
     {
         // FILL IN CODE
+        //get the wall
+        var leftWall = _mazeMap[(_currX, _currY)][1];
+
+        // check if allowed to move and move 
+        if (leftWall)
+        {
+            // Update the position and move right
+            _currX++;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        //Debug.WriteLine($"Current location (x={_currX}, y={_currY})");
     }
 
     /// <summary>
@@ -50,7 +81,20 @@ public class Maze
     /// </summary>
     public void MoveUp()
     {
-        // FILL IN CODE
+        //get the wall
+        var leftWall = _mazeMap[(_currX, _currY)][2];
+
+        // check if allowed to move and move 
+        if (leftWall)
+        {
+            // Update the position and move up
+            _currY--;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        //Debug.WriteLine($"Current location (x={_currX}, y={_currY})");
     }
 
     /// <summary>
@@ -60,6 +104,20 @@ public class Maze
     public void MoveDown()
     {
         // FILL IN CODE
+        //get the wall
+        var leftWall = _mazeMap[(_currX, _currY)][3];
+
+        // check if allowed to move and move 
+        if (leftWall)
+        {
+            // Update the position and move down
+            _currY++;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        //Debug.WriteLine($"Current location (x={_currX}, y={_currY})");
     }
 
     public string GetStatus()
